@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ReviewGene</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                🚀 ReviewGene
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sample" class="nav-link">Sample</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="nav-link">Help</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <h1>About ReviewGene</h1>
+            <p class="subtitle">Learn more about our AI-powered review generation system</p>
+        </div>
+
+        <!-- About Content -->
+        <div class="about-content">
+            <div class="about-card">
+                <h2><i class="fas fa-rocket"></i> Our Mission</h2>
+                <p>ReviewGene is designed to revolutionize how Indian e-commerce businesses generate authentic customer reviews. We combine cutting-edge AI technology with deep understanding of Indian culture and language patterns to create reviews that feel genuine and trustworthy.</p>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-brain"></i> How It Works</h2>
+                <div class="how-it-works">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Product Data</h3>
+                        <p>Upload your product list in Excel or CSV format with required columns</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our AI analyzes each product and generates contextually relevant reviews</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Review Generation</h3>
+                        <p>Creates 17-22 unique reviews per product with diverse usernames</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Download Results</h3>
+                        <p>Get your generated reviews in CSV format, ready to use</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h3>AI-Powered Generation</h3>
+                            <p>Uses OpenAI's GPT models for realistic, contextual reviews</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-flag"></i>
+                        <div>
+                            <h3>Indian Cultural Focus</h3>
+                            <p>Authentic Indian usernames and culturally relevant content</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h3>Multi-Language Support</h3>
+                            <p>Natural mixing of English, Hinglish, and Hindi</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h3>Diverse Usernames</h3>
+                            <p>7 different username types for maximum variety</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <h3>Bulk Processing</h3>
+                            <p>Handle thousands of products efficiently</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-save"></i>
+                        <div>
+                            <h3>Auto-Save & Checkpointing</h3>
+                            <p>Never lose progress with automatic saving</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-database"></i> Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-flask"></i>
+                        <span>Flask</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-brain"></i>
+                        <span>OpenAI GPT</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-table"></i>
+                        <span>Pandas</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🚀 ReviewGene</h3>
+                <p>AI-Powered Review Generator for Indian E-commerce Products</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sample">Sample</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/help">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ReviewGene. Built with ❤️ for Indian E-commerce.</p>
+        </div>
+    </footer>
+
+    <style>
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-card h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-card p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9ff;
+            border-radius: 10px;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-top: 0.5rem;
+        }
+
+        .feature-item h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem;
+            background: #f8f9ff;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-item i {
+            font-size: 2.5rem;
+            color: #667eea;
+        }
+
+        .tech-item span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .about-card {
+                padding: 2rem;
+            }
+
+            .how-it-works {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</body>
+</html>
