@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample - ReviewGene</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                🚀 ReviewGene
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sample" class="nav-link active">Sample</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="nav-link">Help</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <h1>Sample Data & Results</h1>
+            <p class="subtitle">See examples of input data and generated reviews</p>
+        </div>
+
+        <!-- Sample Content -->
+        <div class="sample-content">
+            <!-- Input Data Sample -->
+            <div class="sample-card">
+                <h2><i class="fas fa-upload"></i> Sample Input Data</h2>
+                <p>Here's how your input Excel/CSV file should be formatted:</p>
+                
+                <div class="sample-table-container">
+                    <table class="sample-table">
+                        <thead>
+                            <tr>
+                                <th>sku_id</th>
+                                <th>Name</th>
+                                <th>brand</th>
+                                <th>product_discount_category</th>
+                                <th>Classifier 1</th>
+                                <th>classifier 2</th>
+                                <th>classifier 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CER0576</td>
+                                <td>CeraVe Moisturizing Cream</td>
+                                <td>CeraVe</td>
+                                <td>FMCG</td>
+                                <td>PERSONAL CARE</td>
+                                <td>SKIN CARE</td>
+                                <td>BODY CARE</td>
+                            </tr>
+                            <tr>
+                                <td>NEU0830</td>
+                                <td>Neurobion Forte Tablet</td>
+                                <td>Neurobion</td>
+                                <td>FMCG</td>
+                                <td>NUTRITION & METABOLISM</td>
+                                <td>VITAMINS AND MINERALS</td>
+                                <td>VITAMINS AND MINERALS</td>
+                            </tr>
+                            <tr>
+                                <td>EVI0105</td>
+                                <td>Evion 400mg Capsule</td>
+                                <td>Evion</td>
+                                <td>FMCG</td>
+                                <td>NUTRITION & METABOLISM</td>
+                                <td>VITAMINS AND MINERALS</td>
+                                <td>VITAMINS AND MINERALS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="sample-actions">
+                    <a href="/download-sample" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Sample File
+                    </a>
+                </div>
+            </div>
+
+            <!-- Generated Reviews Sample -->
+            <div class="sample-card">
+                <h2><i class="fas fa-star"></i> Sample Generated Reviews</h2>
+                <p>Here are examples of reviews that would be generated for the above products:</p>
+                
+                <div class="reviews-container">
+                    <div class="product-reviews">
+                        <h3>CeraVe Moisturizing Cream</h3>
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">Priya Sharma</span>
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-15</span>
+                                </div>
+                                <div class="review-text">
+                                    "Skin feels super hydrated after using this cream. Perfect for dry winter months!"
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">rockstar99</span>
+                                    <span class="rating">⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-14</span>
+                                </div>
+                                <div class="review-text">
+                                    "Accha moisturizer hai, skin soft ho jati hai. Price bhi reasonable hai."
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">Amit Patel</span>
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-13</span>
+                                </div>
+                                <div class="review-text">
+                                    "Been using for 2 weeks, skin texture improved significantly. No breakouts!"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-reviews">
+                        <h3>Neurobion Forte Tablet</h3>
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">miss_shy</span>
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-15</span>
+                                </div>
+                                <div class="review-text">
+                                    "Energy levels improved after taking these tablets. Feeling much better now."
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">Kavitha Nair</span>
+                                    <span class="rating">⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-14</span>
+                                </div>
+                                <div class="review-text">
+                                    "Doctor recommended for vitamin deficiency. Tabiyat acchi ho gayi hai."
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="username">random123</span>
+                                <span class="rating">⭐⭐⭐⭐</span>
+                                    <span class="date">2025-01-13</span>
+                                </div>
+                                <div class="review-text">
+                                    "Good quality vitamins, helps with nerve health. Delivery was quick too."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Showcase -->
+            <div class="sample-card">
+                <h2><i class="fas fa-magic"></i> Key Features Demonstrated</h2>
+                <div class="features-showcase">
+                    <div class="feature-demo">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Diverse Usernames</h3>
+                            <p>Notice the variety: "Priya Sharma", "rockstar99", "miss_shy", "random123"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-demo">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Multi-Language Mix</h3>
+                            <p>English: "Skin feels super hydrated"<br>Hinglish: "Accha moisturizer hai"<br>Hindi: "Tabiyat acchi ho gayi hai"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-demo">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Realistic Ratings</h3>
+                            <p>Mix of 4-star and 5-star ratings with natural distribution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-demo">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Natural Dates</h3>
+                            <p>Reviews spread across different dates with organic pacing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Format -->
+            <div class="sample-card">
+                <h2><i class="fas fa-file-csv"></i> Output Format</h2>
+                <p>Your generated reviews will be saved in this tab-separated CSV format:</p>
+                
+                <div class="output-format">
+                    <div class="format-header">
+                        <span>sku_id</span>
+                        <span>sku_name</span>
+                        <span>rating</span>
+                        <span>review</span>
+                        <span>post_date</span>
+                        <span>username</span>
+                    </div>
+                    <div class="format-row">
+                        <span>CER0576</span>
+                        <span>CeraVe Moisturizing Cream</span>
+                        <span>5</span>
+                        <span>Skin feels super hydrated after using this cream...</span>
+                        <span>2025-01-15</span>
+                        <span>Priya Sharma</span>
+                    </div>
+                    <div class="format-row">
+                        <span>CER0576</span>
+                        <span>CeraVe Moisturizing Cream</span>
+                        <span>4</span>
+                        <span>Accha moisturizer hai, skin soft ho jati hai...</span>
+                        <span>2025-01-14</span>
+                        <span>rockstar99</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get Started -->
+            <div class="sample-card">
+                <h2><i class="fas fa-rocket"></i> Ready to Get Started?</h2>
+                <div class="get-started">
+                    <p>Now that you've seen the samples, you're ready to generate your own reviews!</p>
+                    <div class="action-buttons">
+                        <a href="/" class="btn btn-primary">
+                            <i class="fas fa-magic"></i> Start Generating
+                        </a>
+                        <a href="/download-sample" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download Sample
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🚀 ReviewGene</h3>
+                <p>AI-Powered Review Generator for Indian E-commerce Products</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sample">Sample</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/help">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ReviewGene. Built with ❤️ for Indian E-commerce.</p>
+        </div>
+    </footer>
+
+    <style>
+        .sample-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sample-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .sample-card h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sample-card p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Sample Table */
+        .sample-table-container {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .sample-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sample-table th {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .sample-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sample-table tr:hover {
+            background: #f8f9ff;
+        }
+
+        .sample-actions {
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Reviews */
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .product-reviews h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .review-item {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .username {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .rating {
+            color: #ffc107;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Features Showcase */
+        .features-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-demo {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9ff;
+            border-radius: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Output Format */
+        .output-format {
+            background: #f8f9ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .format-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 0.5fr 3fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .format-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 0.5fr 3fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .format-row:last-child {
+            border-bottom: none;
+        }
+
+        .format-row span {
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Get Started */
+        .get-started {
+            text-align: center;
+        }
+
+        .get-started p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .sample-card {
+                padding: 2rem;
+            }
+
+            .features-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .format-header,
+            .format-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>
