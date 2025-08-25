@@ -1,0 +1,527 @@
+# Configuration file for OpenAI API settings
+
+# OpenAI API Configuration
+OPENAI_API_KEY="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"
+OPENAI_MODEL = "gpt-4o-mini"  # Default model, can be changed to gpt-4, gpt-4-turbo, etc.
+
+# File Format Configuration
+FILE_FORMAT = {
+    "supported_formats": ["csv", "xlsx", "xls"],
+    "default_format": "xlsx",
+    "required_columns": [
+        "sku_id", "Name", "brand", "product_discount_category", 
+        "Classifier 1", "classifier 2", "classifier 3"
+    ]
+}
+
+# Product Classification Mapping for Benefit Analysis
+PRODUCT_CLASSIFICATIONS = {
+    "AYURVEDA": {
+        "HEALTH CONCERNS": {
+            "ABDOMEN CARE": ["digestive health", "gut balance", "abdomen comfort", "digestion improvement"],
+            "COLD & COUGH": ["respiratory health", "immunity boost", "cold relief", "cough suppression"],
+            "DIABETIC CARE": ["blood sugar control", "diabetic management", "metabolic support", "glucose regulation"],
+            "EYE CARE": ["vision health", "eye comfort", "ocular wellness", "vision support"],
+            "IMMUNITY BOOSTERS": ["immune system", "disease resistance", "overall wellness", "health protection"],
+            "KIDNEY CARE": ["kidney health", "renal function", "detoxification", "urinary health"],
+            "LIVER CARE": ["liver health", "hepatic function", "detox support", "liver protection"],
+            "MENTAL WELLNESS": ["stress relief", "anxiety reduction", "mental clarity", "emotional balance"],
+            "PAIN RELIEF": ["pain management", "discomfort reduction", "body comfort", "pain control"],
+            "RESPIRATORY": ["breathing improvement", "lung health", "respiratory support", "airway comfort"],
+            "SEXUAL HEALTH CARE": ["sexual wellness", "reproductive health", "intimate care", "sexual vitality"],
+            "SKIN HAIR & NAILS CARE": ["skin health", "hair growth", "nail strength", "beauty enhancement"],
+            "STOMACH CARE": ["digestive comfort", "stomach health", "gastric wellness", "digestion support"],
+            "WOMEN CARE": ["feminine health", "women's wellness", "gynecological care", "women's vitality"]
+        },
+        "HERBS": {
+            "AMLA": ["vitamin C boost", "immunity enhancement", "antioxidant", "skin health"],
+            "ASHWAGANDHA": ["stress relief", "energy boost", "adaptogen", "mental wellness"],
+            "GILOY": ["immunity boost", "fever relief", "detoxification", "overall wellness"],
+            "NEEM": ["skin health", "antibacterial", "detoxification", "oral health"],
+            "SHILAJIT": ["sexual health", "energy boost", "mineral supplement", "vitality"],
+            "TULSI": ["respiratory health", "immunity boost", "stress relief", "cold relief"],
+            "TRIPHALA": ["digestive health", "detoxification", "gut balance", "overall wellness"]
+        },
+        "HERBAL JUICES": ["natural wellness", "herbal benefits", "plant-based health", "traditional medicine"],
+        "CHYAWANPRASH": ["immunity boost", "traditional wellness", "herbal supplement", "overall health"]
+    },
+    
+    "BABY CARE": {
+        "DIAPERING": {
+            "DIAPERS": ["baby comfort", "skin protection", "absorbency", "gentle care"],
+            "WIPES": ["gentle cleaning", "skin protection", "hygiene", "baby care"],
+            "RASH CREAMS": ["diaper rash relief", "skin protection", "soothing care", "baby comfort"]
+        },
+        "FEEDING BOTTLES & ACCESSORIES": {
+            "FEEDING BOTTLES": ["baby feeding", "nutrition support", "feeding comfort", "baby care"],
+            "NIPPLES & TEATS": ["feeding comfort", "baby nutrition", "feeding support", "baby care"],
+            "STERILIZERS": ["hygiene", "safety", "clean feeding", "baby health"],
+            "BOTTLE WARMER": ["feeding comfort", "temperature control", "baby nutrition", "feeding support"]
+        },
+        "BABY SKIN CARE": {
+            "BABY LOTIONS": ["skin hydration", "gentle care", "baby comfort", "skin health"],
+            "BABY CREAMS": ["skin protection", "moisturizing", "baby comfort", "skin health"],
+            "BABY MASSAGE OILS": ["baby massage", "skin health", "relaxation", "baby care"],
+            "BABY SUNSCREENS": ["sun protection", "skin safety", "baby care", "UV protection"],
+            "BABY POWDERS": ["skin comfort", "absorbency", "baby care", "skin health"],
+            "BABY LIP BALMS": ["lip protection", "moisturizing", "baby care", "lip health"]
+        },
+        "BABY BATH": {
+            "SOAPS & BARS": ["gentle cleaning", "baby hygiene", "skin care", "bath time"],
+            "BODY WASH": ["gentle cleaning", "baby hygiene", "skin care", "bath comfort"]
+        },
+        "BABY HAIR CARE": {
+            "BABY SHAMPOOS": ["gentle cleaning", "hair care", "scalp health", "baby hygiene"],
+            "BABY HAIR OILS": ["hair health", "scalp care", "hair growth", "baby care"]
+        },
+        "BABY ORAL CARE": {
+            "BABY TOOTHPASTE": ["dental health", "oral hygiene", "baby care", "teeth protection"],
+            "BABY TOOTHBRUSH": ["dental hygiene", "oral care", "baby health", "teeth cleaning"],
+            "TEETHERS & PACIFIERS": ["teething relief", "baby comfort", "oral development", "soothing care"]
+        },
+        "BABY HEALTH & SAFETY": {
+            "EAR & NOSE CARE": ["ear health", "nasal comfort", "baby care", "respiratory health"],
+            "COLIC & DIGESTION": ["digestive comfort", "colic relief", "baby care", "stomach health"],
+            "MOSQUITO REPELLENT & CARE": ["insect protection", "baby safety", "outdoor protection", "baby care"],
+            "LAUNDRY DETERGENTS": ["gentle cleaning", "fabric care", "baby safety", "hygiene"]
+        },
+        "BABY FOOD": {
+            "FORMULA MILK": ["baby nutrition", "growth support", "feeding", "baby development"],
+            "BABY CEREALS": ["baby nutrition", "solid food", "growth support", "baby development"]
+        },
+        "BABY FOOD BY AGE": {
+            "0 TO 6 MONTHS": ["early nutrition", "baby development", "feeding support", "growth"],
+            "6 TO 12 MONTHS": ["transitional nutrition", "baby development", "feeding support", "growth"],
+            "12 TO 18 MONTHS": ["toddler nutrition", "child development", "feeding support", "growth"],
+            "18 TO 24 MONTHS": ["toddler nutrition", "child development", "feeding support", "growth"],
+            "ABOVE 2 YEARS": ["child nutrition", "development support", "feeding", "growth"]
+        },
+        "BREAST FEEDING": {
+            "BREAST PADS": ["nursing comfort", "breast care", "feeding support", "mother care"],
+            "MANUAL BREAST PUMP": ["breastfeeding support", "milk expression", "nursing aid", "mother care"],
+            "ELECTRIC BREAST PUMP": ["breastfeeding support", "milk expression", "nursing aid", "mother care"],
+            "NIPPLE SHIELDS": ["nursing comfort", "breastfeeding aid", "mother care", "feeding support"]
+        }
+    },
+    
+    "NUTRITIONAL DRINKS & SUPPLEMENTS": {
+        "VITAMINS & SUPPLEMENTS": {
+            "MULTIVITAMINS": ["overall nutrition", "vitamin support", "health maintenance", "wellness"],
+            "VITAMIN A": ["vision health", "immune support", "skin health", "growth"],
+            "VITAMIN B": ["energy boost", "metabolism", "nervous system", "red blood cells"],
+            "VITAMIN C": ["immunity boost", "antioxidant", "collagen production", "iron absorption"],
+            "VITAMIN D": ["bone health", "calcium absorption", "immune system", "sunshine vitamin"],
+            "VITAMIN E": ["antioxidant", "skin health", "immune support", "cell protection"],
+            "MINERALS": {
+                "CALCIUM": ["bone strength", "dental health", "muscle function", "calcium deficiency"],
+                "IRON": ["iron deficiency", "anemia treatment", "hemoglobin production", "energy levels"],
+                "MAGNESIUM": ["muscle function", "nervous system", "energy production", "bone health"],
+                "ZINC": ["immune support", "wound healing", "protein synthesis", "growth"]
+            },
+            "GUMMIES": ["tasty supplements", "nutrition support", "health maintenance", "wellness"],
+            "HONEY": ["natural sweetener", "immunity boost", "energy source", "traditional remedy"]
+        },
+        "SPECIALITY SUPPLEMENTS": {
+            "COLLAGEN": ["skin health", "joint support", "anti-aging", "beauty enhancement"],
+            "BIOTIN": ["hair health", "nail strength", "skin health", "beauty support"],
+            "PRE & PROBIOTIC": ["gut health", "digestion", "immune support", "intestinal balance"],
+            "ANTIOXIDANT": ["cell protection", "aging support", "immune boost", "overall health"],
+            "DETOX": ["body cleansing", "liver support", "detoxification", "overall wellness"]
+        },
+        "SPORTS NUTRITION": {
+            "WHEY PROTEIN": ["muscle building", "protein supplement", "fitness support", "recovery"],
+            "PROTEIN POWDERS & DRINKS": ["muscle building", "protein supplement", "fitness support", "recovery"],
+            "PROTEIN BARS": ["protein snack", "muscle support", "fitness nutrition", "convenient protein"],
+            "PRE WORKOUT": ["energy boost", "performance enhancement", "fitness support", "workout preparation"],
+            "POST WORKOUT": ["recovery support", "muscle repair", "fitness nutrition", "post-exercise"],
+            "MUSCLE MASS BUILDERS": ["muscle growth", "strength support", "fitness enhancement", "bodybuilding"]
+        },
+        "WEIGHT MANAGEMENT": {
+            "FAT BURNER SUPPLEMENTS": ["weight loss", "metabolism boost", "fat reduction", "weight management"],
+            "WEIGHT GAIN SUPPLEMENTS": ["weight gain", "muscle building", "nutrition support", "body mass"],
+            "MEAL REPLACEMENTS": ["weight management", "nutrition control", "convenient nutrition", "diet support"],
+            "GREEN TEA": ["weight loss", "antioxidant", "metabolism boost", "natural supplement"],
+            "APPLE CIDER VINEGAR": ["weight loss", "digestive health", "metabolism support", "natural remedy"],
+            "SUGAR SUBSTITUTES": ["diabetic support", "weight management", "sugar control", "diet aid"]
+        },
+        "NUTRITIONAL DRINKS": {
+            "ADULT NUTRITION": ["adult wellness", "nutrition support", "health maintenance", "overall health"],
+            "KIDS NUTRITION": ["child development", "growth support", "nutrition", "kids health"],
+            "HEALTH DRINKS": ["overall wellness", "nutrition support", "health maintenance", "daily health"],
+            "REHYDRATION DRINKS": ["hydration", "electrolyte balance", "recovery", "fluid replacement"],
+            "IMMUNITY BOOSTERS": ["immune system", "disease resistance", "overall wellness", "health protection"],
+            "HERBAL JUICES": ["natural wellness", "herbal benefits", "plant-based health", "traditional medicine"],
+            "CHOCOLATES & BISCUITS": ["tasty nutrition", "snack support", "energy boost", "convenient nutrition"],
+            "PEANUT BUTTER": ["protein source", "energy boost", "nutrition", "convenient food"]
+        },
+        "SEXUAL HEALTH SUPPLEMENTS": ["sexual wellness", "reproductive health", "intimate care", "sexual vitality"],
+        "OMEGA & FISH OIL": ["heart health", "brain function", "inflammation reduction", "joint health"],
+        "COD LIVER OIL": ["vitamin D", "omega-3", "bone health", "immune support"]
+    },
+    
+    "HEALTH CONDITION": {
+        "COLD & COUGH": ["respiratory relief", "cold symptoms", "cough suppression", "breathing comfort"],
+        "PAIN RELIEF": ["pain management", "discomfort reduction", "body comfort", "pain control"],
+        "STOMACH CARE": ["digestive health", "stomach comfort", "digestion support", "gastric wellness"],
+        "DIABETIC": ["blood sugar control", "diabetic management", "metabolic support", "glucose regulation"],
+        "RESPIRATORY": ["breathing improvement", "lung health", "respiratory support", "airway comfort"],
+        "MENTAL WELLNESS": ["stress relief", "anxiety reduction", "mental clarity", "emotional balance"],
+        "SLEEP AIDS": ["sleep support", "rest improvement", "sleep quality", "relaxation"],
+        "WOUND CARE": ["wound healing", "injury care", "skin repair", "healing support"],
+        "EYE CARE": ["vision health", "eye comfort", "ocular wellness", "vision support"],
+        "LIVER CARE": ["liver health", "hepatic function", "detox support", "liver protection"],
+        "KIDNEY CARE": ["kidney health", "renal function", "detoxification", "urinary health"],
+        "CARDIOVASCULAR": ["heart health", "circulatory support", "cardiovascular wellness", "heart care"],
+        "BLOOD PRESSURE": ["blood pressure control", "cardiovascular health", "heart support", "circulation"],
+        "CHOLESTEROL": ["cholesterol management", "heart health", "cardiovascular support", "lipid control"]
+    },
+    
+    "PERSONAL CARE": {
+        "SKIN CARE": {
+            "FACE CARE": ["facial health", "skin beauty", "complexion improvement", "facial care"],
+            "BATH & BODY": ["body care", "skin health", "hygiene", "body wellness"],
+            "FOOT & HAND CARE": ["extremity care", "skin health", "hygiene", "comfort"],
+            "LIP CARE": ["lip health", "moisturizing", "lip protection", "beauty care"],
+            "MASSAGE & ESSENTIAL OILS": ["relaxation", "skin health", "therapeutic care", "wellness"],
+            "HAND WASH & SANITIZERS": ["hygiene", "germ protection", "cleanliness", "health safety"],
+            "FACIAL WIPES": ["facial cleaning", "convenience", "skin care", "hygiene"]
+        },
+        "HAIR CARE": {
+            "SHAMPOOS": ["hair cleaning", "scalp health", "hair care", "hygiene"],
+            "CONDITIONERS": ["hair conditioning", "hair health", "manageability", "hair care"],
+            "HAIR OILS": ["hair nourishment", "scalp health", "hair growth", "hair care"],
+            "GELS & SERUMS": ["hair styling", "hair health", "manageability", "hair care"],
+            "HAIR CREAMS & PACKS": ["hair treatment", "hair health", "nourishment", "hair care"],
+            "HAIR COLORS": ["hair coloring", "beauty enhancement", "style change", "hair care"]
+        },
+        "ORAL CARE": {
+            "TOOTHPASTE": ["dental health", "oral hygiene", "teeth cleaning", "dental care"],
+            "TOOTH BRUSH & TONGUE CLEANER": ["dental hygiene", "oral care", "teeth cleaning", "dental health"],
+            "MOUTH FRESHNERS": ["oral freshness", "breath improvement", "oral hygiene", "dental care"],
+            "MOUTH WASH": ["oral hygiene", "dental health", "breath freshness", "oral care"],
+            "ELECTRIC BRUSH & ACCESSORIES": ["dental hygiene", "advanced cleaning", "oral care", "dental health"]
+        },
+        "SEXUAL WELLNESS": {
+            "CONDOMS": ["sexual protection", "safe sex", "contraception", "sexual health"],
+            "PERFORMANCE ENHANCERS & ACCESSORIES": ["sexual enhancement", "intimate care", "sexual wellness", "performance support"]
+        },
+        "FRAGRANCES": ["personal scent", "beauty enhancement", "confidence boost", "personal care"],
+        "ADULT DIAPERS": ["adult care", "incontinence support", "comfort", "adult hygiene"],
+        "MENS GROOMING": {
+            "RAZORS & SHAVING BRUSH": ["shaving", "grooming", "personal care", "hygiene"],
+            "SHAVING CREAMS & FOAMS": ["shaving comfort", "grooming", "skin care", "shaving aid"],
+            "GELS & AFTER SHAVE LOTIONS": ["post-shave care", "grooming", "skin comfort", "shaving support"],
+            "CATRIDGES": ["shaving", "grooming", "personal care", "hygiene"]
+        }
+    },
+    
+    "WOMEN CARE": {
+        "FEMININE HYGIENE": {
+            "SANITARY PADS": ["menstrual care", "feminine hygiene", "comfort", "women's health"],
+            "PANTY LINERS": ["feminine hygiene", "daily care", "comfort", "women's health"],
+            "TAMPONS": ["menstrual care", "feminine hygiene", "comfort", "women's health"],
+            "MENSTRUAL CUPS": ["menstrual care", "feminine hygiene", "eco-friendly", "women's health"]
+        },
+        "WOMEN SUPPLEMENTS": {
+            "WOMEN'S MULTIVITAMINS": ["women's health", "nutrition support", "wellness", "female care"],
+            "HEALTH TONICS": ["women's wellness", "health support", "vitality", "female care"],
+            "CALCIUM": ["bone health", "women's health", "mineral support", "bone strength"]
+        },
+        "GYNECOLOGICAL CARE": {
+            "MENSTRUAL CARE": ["menstrual health", "period care", "feminine wellness", "women's health"],
+            "PCOS": ["polycystic ovary syndrome", "hormonal balance", "women's health", "reproductive care"],
+            "OVULATION": ["fertility support", "reproductive health", "women's health", "conception aid"],
+            "MENOPAUSE": ["menopausal support", "women's health", "hormonal balance", "aging care"],
+            "CRAMP RELIEF": ["menstrual comfort", "pain relief", "women's health", "period care"]
+        },
+        "MOTHER CARE": {
+            "MOTHER'S NUTRITION": ["maternal health", "pregnancy support", "nursing care", "mother wellness"],
+            "LACTATION SUPPORT": ["breastfeeding support", "milk production", "nursing aid", "mother care"],
+            "MOTHER SKIN CARE": ["maternal skin health", "pregnancy care", "mother wellness", "skin care"]
+        },
+        "GROOMING": {
+            "HAIR REMOVAL": ["hair removal", "grooming", "beauty care", "women's hygiene"],
+            "RAZORS & CARTRIDGES": ["shaving", "grooming", "personal care", "women's hygiene"]
+        },
+        "INTIMATE CARE": ["feminine hygiene", "intimate health", "women's care", "personal hygiene"]
+    },
+    
+    "HEALTH DEVICES": {
+        "BP MONITORS": ["blood pressure monitoring", "cardiovascular health", "health tracking", "medical device"],
+        "GLUCOMETERS & TEST STRIPS": ["diabetes monitoring", "blood sugar testing", "health tracking", "medical device"],
+        "THERMOMETERS": ["temperature monitoring", "fever detection", "health tracking", "medical device"],
+        "PULSE OXIMETERS": ["oxygen monitoring", "respiratory health", "health tracking", "medical device"],
+        "WEIGHING MACHINE": ["weight monitoring", "health tracking", "fitness support", "health device"],
+        "SUPPORTS & SPLINTS": {
+            "ABDOMINAL SUPPORTS": ["abdominal support", "posture aid", "recovery support", "medical device"],
+            "KNEE & LEG SUPPORTS": ["joint support", "mobility aid", "recovery support", "medical device"],
+            "ARM & WRIST SUPPORTS": ["joint support", "mobility aid", "recovery support", "medical device"],
+            "NECK SUPPORTS": ["neck support", "posture aid", "recovery support", "medical device"],
+            "CLAVICLE SUPPORTS": ["shoulder support", "recovery aid", "mobility support", "medical device"]
+        },
+        "HEALTH ACCESSORIES": {
+            "GLOVES": ["hygiene", "protection", "medical safety", "health accessory"],
+            "FACE MASK": ["respiratory protection", "hygiene", "health safety", "protection"],
+            "NECK PILLOW": ["comfort", "posture support", "rest aid", "health accessory"],
+            "ORTHO SLIPPERS": ["foot support", "comfort", "mobility aid", "health accessory"],
+            "OTHER HEALTH ACCESSORIES": ["health support", "wellness aid", "medical accessory", "health care"]
+        },
+        "HEATING BELTS": ["pain relief", "comfort", "therapeutic care", "medical device"],
+        "NEBULIZER": ["respiratory treatment", "breathing support", "medical device", "respiratory care"],
+        "PREGNANCY": {
+            "PREGNANCY TEST KIT": ["pregnancy detection", "fertility testing", "reproductive health", "medical device"]
+        },
+        "COVID TEST KITS": ["covid testing", "health screening", "disease detection", "medical device"]
+    },
+    
+    "HOME ESSENTIALS": {
+        "ROOM FRESHNERS": ["air freshening", "home comfort", "environmental care", "home wellness"],
+        "INSECT REPELLENTS": ["insect protection", "outdoor safety", "pest control", "home protection"],
+        "CLEANING ESSENTIALS": ["home cleaning", "hygiene", "cleanliness", "home care"],
+        "ANTISEPTIC LIQUIDS": ["wound care", "disinfection", "hygiene", "first aid"],
+        "BATTERIES": ["power supply", "device support", "home utility", "essential item"],
+        "PET FOOD": ["pet nutrition", "animal care", "pet health", "pet wellness"]
+    },
+    
+    "PHARMA": {
+        "GENERIC": ["general medication", "health treatment", "medical care", "therapeutic support"],
+        "SKIN DISORDERS": {
+            "ACNE": ["acne treatment", "skin health", "blemish control", "dermatological care"],
+            "ANTI FUNGALS": ["fungal treatment", "skin health", "infection control", "dermatological care"],
+            "TOPICAL ANTI BACTERIAL": ["bacterial treatment", "skin health", "infection control", "dermatological care"],
+            "TOPICAL STEROID PREPARATIONS": ["inflammatory treatment", "skin health", "dermatological care", "therapeutic support"],
+            "ANTIPRURITIC & SOOTHING PREPARATIONS": ["itching relief", "skin comfort", "dermatological care", "soothing treatment"],
+            "PIGMENTATION": ["skin tone", "pigmentation treatment", "dermatological care", "beauty enhancement"]
+        },
+        "PAIN RELIEF": ["pain management", "discomfort reduction", "therapeutic care", "medical treatment"],
+        "COLD & COUGH": ["respiratory relief", "cold treatment", "cough suppression", "medical care"],
+        "STOMACH CARE": ["digestive treatment", "gastric care", "digestive health", "medical care"],
+        "WOUND CARE": ["wound treatment", "injury care", "healing support", "medical care"],
+        "INFECTIONS & INFESTATION": {
+            "ANTI-BACTERIAL & ANTI BIOTICS": ["bacterial treatment", "infection control", "medical care", "therapeutic support"]
+        },
+        "CARDIOVASCULAR": {
+            "ANTI ARRYTHMIAS": ["heart rhythm", "cardiovascular health", "medical treatment", "heart care"]
+        },
+        "GASTROENTEROLOGY": {
+            "LAXATIVES & PURGATIVES": ["digestive relief", "bowel health", "medical treatment", "digestive care"],
+            "ANTI SPASMODICS": ["spasm relief", "digestive comfort", "medical treatment", "digestive care"],
+            "GASTRITIS": ["stomach inflammation", "digestive health", "medical treatment", "gastric care"]
+        },
+        "CNS DRUGS": {
+            "NSAID'S": ["pain relief", "inflammation reduction", "medical treatment", "therapeutic care"],
+            "ANTI DEPRESSANTS": ["mental health", "depression treatment", "medical care", "therapeutic support"],
+            "NARCOTICS & PSYCHOTROPIC AGENTS": ["pain management", "mental health", "medical treatment", "therapeutic care"],
+            "MUSCLE RELAXANT": ["muscle relaxation", "pain relief", "medical treatment", "therapeutic care"]
+        },
+        "RESPIRATORY SYSTEM": {
+            "MUCOLYTICS & DECONGESTANTS": ["respiratory relief", "breathing support", "medical treatment", "respiratory care"]
+        },
+        "I.V. FLUIDS": ["fluid replacement", "medical treatment", "hydration support", "therapeutic care"],
+        "NUTRITION & METABOLISM": {
+            "NUTRITIONAL SUPPLEMENTS": ["nutrition support", "health maintenance", "medical care", "wellness support"],
+            "VITAMINS": ["vitamin support", "nutrition", "health maintenance", "wellness"],
+            "TONIC & APPETITE STIMULANTS": ["appetite support", "nutrition", "health maintenance", "wellness"]
+        }
+    }
+}
+
+# Language Mixing Configuration
+LANGUAGE_MIXING = {
+    "enabled": True,  # Enable natural language mixing
+    "primary_language": "Hinglish",  # Primary language style
+    "mixing_patterns": [
+        "Pure Hinglish",      # e.g., "Product bahut accha hai yaar, kaafi satisfied hun"
+        "Hinglish + English", # e.g., "Great product hai, quality top notch"
+        "English + Hindi",    # e.g., "Works perfectly, bilkul perfect hai"
+        "Pure English",       # e.g., "Excellent product, highly recommend"
+        "Hindi + English",    # e.g., "Product accha hai, very good quality"
+        "Mixed Natural"       # e.g., "Kaafi sahi hai yaar, really impressed with the quality"
+    ],
+    "distribution": {
+        "Pure Hinglish": 20,      # 20% pure Hinglish
+        "Hinglish + English": 25, # 25% Hinglish with English words
+        "English + Hindi": 25,    # 25% English with Hindi words
+        "Pure English": 20,       # 20% pure English
+        "Hindi + English": 8,     # 8% Hindi with English words
+        "Mixed Natural": 2        # 2% complex natural mixing
+    }
+}
+
+# Review Length Configuration
+REVIEW_LENGTH_SETTINGS = {
+    "max_sentences": 2,           # Maximum 2 sentences per review
+    "target_length": "1-2 lines", # Like real customer reviews
+    "distribution": {
+        "1_sentence": 50,         # 50% single sentence reviews
+        "2_sentences": 40,        # 40% two sentence reviews  
+        "brief_2_sentences": 10   # 10% brief two sentence reviews
+    }
+}
+
+# Checkpointing Configuration
+CHECKPOINT_SETTINGS = {
+    "enabled": True,              # Enable checkpointing
+    "save_interval": 50,          # Save every 50 reviews
+    "checkpoint_dir": "checkpoints", # Directory for checkpoint files
+    "max_checkpoints": 10,        # Keep last 10 checkpoints
+    "resume_enabled": True,       # Enable resume from checkpoint
+    "backup_interval": 100        # Create backup every 100 reviews
+}
+
+# Hinglish/Hindi Phrases and Slang
+HINGLISH_PHRASES = [
+    "yaar", "bhai", "dost", "sahi hai", "accha hai", "kaafi", "bilkul", "thoda",
+    "bahut", "perfect", "awesome", "amazing", "fantastic", "superb", "outstanding",
+    "chalega", "theek hai", "koi problem nahi", "kaam kar gaya", "satisfied hun",
+    "recommend karunga", "worth it hai", "value for money", "quality top notch",
+    "delivery fast thi", "packaging acchi thi", "product genuine hai", "original hai"
+]
+
+# Natural Language Mixing Examples
+NATURAL_MIXING_EXAMPLES = [
+    "Product bahut accha hai yaar, really impressed with the quality",
+    "Works perfectly, bilkul perfect hai",
+    "Great product hai, quality top notch",
+    "Kaafi satisfied hun, delivery bhi fast thi",
+    "Really good hai yaar, recommend karunga definitely",
+    "Product accha hai, very good quality and packaging",
+    "Bilkul worth it hai, excellent value for money",
+    "Quality bahut acchi hai, really happy with the purchase",
+    "Product genuine hai, original quality milega",
+    "Delivery fast thi, product bhi perfect condition mein aaya"
+]
+
+# Product Benefit Analysis Configuration
+PRODUCT_BENEFIT_ANALYSIS = {
+    "enabled": True,  # Enable automatic product benefit analysis
+    "use_openai": True,  # Use OpenAI API to analyze product benefits
+            "fallback_benefits": {  # Fallback benefits for common product types
+            # Fever & Pain Management
+            "fever": ["fever reduction", "body temperature control", "fever relief", "pyrexia treatment"],
+            "pain": ["pain relief", "headache relief", "body pain relief", "muscle pain relief", "analgesic"],
+            "pain_relief": ["pain management", "discomfort reduction", "body comfort", "pain control"],
+            
+            # Vitamins & Minerals
+            "vitamin_c": ["vitamin C deficiency", "immunity boost", "antioxidant", "collagen production"],
+            "vitamin_d": ["vitamin D deficiency", "bone health", "calcium absorption", "immune system"],
+            "vitamin_b": ["energy boost", "metabolism", "nervous system", "red blood cell production"],
+            "vitamin_a": ["vision health", "immune support", "skin health", "growth support"],
+            "vitamin_e": ["antioxidant", "skin health", "immune support", "cell protection"],
+            "calcium": ["bone strength", "dental health", "muscle function", "calcium deficiency"],
+            "iron": ["iron deficiency", "anemia treatment", "hemoglobin production", "energy levels"],
+            "zinc": ["immune support", "wound healing", "protein synthesis", "growth support"],
+            "magnesium": ["muscle function", "nervous system", "energy production", "bone health"],
+            
+            # Protein & Supplements
+            "protein": ["muscle building", "tissue repair", "enzyme production", "immune function"],
+            "omega3": ["heart health", "brain function", "inflammation reduction", "joint health"],
+            "probiotics": ["gut health", "digestion", "immune support", "intestinal balance"],
+            
+            # Allergies & Respiratory
+            "antiallergic": ["allergy relief", "sneezing control", "itching reduction", "seasonal allergies"],
+            "cold_cough": ["respiratory relief", "cold symptoms", "cough suppression", "breathing comfort"],
+            "respiratory": ["breathing improvement", "lung health", "respiratory support", "airway comfort"],
+            
+            # Personal Care
+            "skincare": ["skin hydration", "acne treatment", "anti-aging", "skin repair"],
+            "haircare": ["hair growth", "dandruff control", "hair strength", "scalp health"],
+            "oral_care": ["dental health", "oral hygiene", "teeth cleaning", "dental care"],
+            
+            # Digestive & Gut Health
+            "digestive": ["digestion improvement", "acid reflux", "constipation relief", "gut health"],
+            "stomach_care": ["digestive comfort", "stomach health", "gastric wellness", "digestion support"],
+            
+            # Baby Care
+            "baby_care": ["baby comfort", "skin protection", "absorbency", "gentle care"],
+            "baby_skincare": ["skin hydration", "gentle care", "baby comfort", "skin health"],
+            "baby_nutrition": ["baby nutrition", "growth support", "feeding", "baby development"],
+            
+            # Women's Health
+            "women_health": ["feminine health", "women's wellness", "gynecological care", "women's vitality"],
+            "gynecological_care": ["menstrual health", "period care", "feminine wellness", "women's health"],
+            
+            # Health Devices
+            "health_monitoring": ["health monitoring", "medical support", "home healthcare", "wellness tracking"],
+            "health_supports": ["mobility support", "recovery aid", "posture support", "medical device"],
+            
+            # Ayurvedic & Herbal
+            "ayurvedic": ["natural wellness", "herbal benefits", "plant-based health", "traditional medicine"],
+            "immunity_boosters": ["immune system", "disease resistance", "overall wellness", "health protection"],
+            
+            # Sports & Fitness
+            "sports_nutrition": ["muscle building", "fitness support", "performance enhancement", "recovery"],
+            "weight_management": ["weight control", "metabolism support", "body composition", "health goals"],
+            
+            # Sexual Health
+            "sexual_health": ["sexual wellness", "reproductive health", "intimate care", "sexual vitality"],
+            
+            # Home & Hygiene
+            "hygiene": ["cleanliness", "germ protection", "health safety", "sanitation"],
+            "insect_protection": ["insect protection", "outdoor safety", "pest control", "protection"]
+        }
+}
+
+# Common Product Keywords for Benefit Mapping
+PRODUCT_KEYWORDS = {
+    # Fever & Pain Management
+    "fever": ["dolo", "paracetamol", "acetaminophen", "fever", "temperature", "pyrexia"],
+    "pain": ["pain", "headache", "migraine", "body pain", "muscle pain", "joint pain", "analgesic"],
+    
+    # Vitamins & Minerals
+    "vitamin_c": ["limcee", "vitamin c", "ascorbic acid", "citrus", "immunity", "ascorbate"],
+    "vitamin_d": ["vitamin d", "cholecalciferol", "calcium", "bone", "sunshine vitamin", "calciferol"],
+    "vitamin_b": ["vitamin b", "b-complex", "thiamine", "riboflavin", "niacin", "energy", "b12"],
+    "vitamin_a": ["vitamin a", "retinol", "vision", "skin", "growth", "beta carotene"],
+    "vitamin_e": ["vitamin e", "tocopherol", "antioxidant", "skin", "cell protection"],
+    "calcium": ["calcium", "bone", "osteoporosis", "dental", "muscle", "calc"],
+    "iron": ["iron", "ferrous", "anemia", "hemoglobin", "blood", "ferric"],
+    "zinc": ["zinc", "immunity", "wound healing", "protein synthesis", "growth"],
+    "magnesium": ["magnesium", "muscle function", "nervous system", "energy", "mg"],
+    
+    # Protein & Supplements
+    "protein": ["protein", "whey", "casein", "amino acids", "muscle", "proteinex"],
+    "omega3": ["omega", "fish oil", "epa", "dha", "heart", "brain", "omega-3"],
+    "probiotics": ["probiotic", "lactobacillus", "bifidobacterium", "gut", "digestion", "prebiotic"],
+    
+    # Allergies & Respiratory
+    "antiallergic": ["cetirizine", "loratadine", "fexofenadine", "allergy", "antihistamine", "zyrtec"],
+    "cold_cough": ["cold", "cough", "respiratory", "bronchitis", "phlegm", "expectorant"],
+    
+    # Personal Care
+    "skincare": ["cetaphil", "cerave", "cleanser", "moisturizer", "serum", "cream", "lotion"],
+    "haircare": ["shampoo", "conditioner", "hair oil", "serum", "dandruff", "hair growth"],
+    "oral_care": ["toothpaste", "toothbrush", "mouthwash", "dental", "oral", "teeth"],
+    
+    # Digestive & Gut Health
+    "digestive": ["digestive", "probiotic", "enzyme", "acid reflux", "constipation", "gut"],
+    "stomach_care": ["stomach", "gastric", "digestion", "indigestion", "bloating", "gas"],
+    
+    # Baby Care
+    "baby_care": ["baby", "infant", "toddler", "diaper", "baby food", "baby care"],
+    "baby_skincare": ["baby lotion", "baby cream", "baby powder", "baby oil", "baby care"],
+    "baby_nutrition": ["formula", "baby cereal", "baby food", "lactation", "breastfeeding"],
+    
+    # Women's Health
+    "women_health": ["feminine", "sanitary", "panty liner", "tampon", "menstrual", "pcos"],
+    "gynecological": ["gynecological", "ovulation", "menopause", "cramp relief", "women care"],
+    
+    # Health Devices
+    "health_monitoring": ["bp monitor", "glucometer", "thermometer", "pulse oximeter", "weighing"],
+    "health_supports": ["support", "splint", "brace", "orthopedic", "mobility aid"],
+    
+    # Ayurvedic & Herbal
+    "ayurvedic": ["ayurveda", "herbal", "natural", "traditional", "herb", "ayurvedic"],
+    "immunity_boosters": ["immunity", "immune", "boost", "defense", "resistance", "protection"],
+    
+    # Sports & Fitness
+    "sports_nutrition": ["sports", "fitness", "workout", "muscle", "protein", "pre-workout"],
+    "weight_management": ["weight loss", "fat burner", "weight gain", "meal replacement", "diet"],
+    
+    # Sexual Health
+    "sexual_health": ["sexual", "intimate", "condom", "performance", "vitality", "reproductive"],
+    
+    # Home & Hygiene
+    "hygiene": ["sanitizer", "antiseptic", "cleaning", "hygiene", "disinfectant", "clean"],
+    "insect_protection": ["mosquito", "insect", "repellent", "protection", "outdoor", "bug"]
+} 
