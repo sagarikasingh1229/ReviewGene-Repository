@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewGene - AI Review Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                🚀 ReviewGene
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sample" class="nav-link">Sample</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="nav-link">Help</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 ReviewGene</h1>
+            <p class="subtitle">AI-Powered Review Generator for Indian E-commerce Products</p>
+            <div class="header-buttons">
+                <a href="/download-sample" class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Download Sample
+                </a>
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-card">
+                <h2><i class="fas fa-cloud-upload-alt"></i> Upload Your Product List</h2>
+                <p>Upload an Excel file (.xlsx, .xls) or CSV file with your product data</p>
+                
+                <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-input-container">
+                        <input type="file" name="file" id="file" accept=".xlsx,.xls,.csv" required>
+                        <label for="file" class="file-label">
+                            <div class="file-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <div class="file-text">
+                                <span class="file-title">Choose File</span>
+                                <span class="file-subtitle">Excel or CSV files only</span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="generate-btn">
+                        <i class="fas fa-magic"></i> Generate Reviews
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2><i class="fas fa-star"></i> Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Uses advanced OpenAI GPT models to generate realistic, contextual reviews</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Indian Focus</h3>
+                    <p>Creates authentic Indian usernames and culturally relevant content</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Multi-Language</h3>
+                    <p>Mixes English, Hinglish, and Hindi naturally for authentic reviews</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Bulk Generation</h3>
+                    <p>Generate 17-22 reviews per product for comprehensive coverage</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Diverse Usernames</h3>
+                    <p>Creates varied usernames: full names, nicknames, alphanumeric, and more</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3>Auto Save</h3>
+                    <p>Automatic progress saving and checkpointing for large files</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Format Section -->
+        <div class="format-section">
+            <h2><i class="fas fa-table"></i> Required File Format</h2>
+            <div class="format-card">
+                <p>Your Excel/CSV file should have these columns:</p>
+                <div class="columns-grid">
+                    <div class="column-item">
+                        <strong>sku_id</strong>
+                        <span>Product identifier (e.g., CER0576)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>Name</strong>
+                        <span>Product name (e.g., CeraVe Moisturizing Cream)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>brand</strong>
+                        <span>Brand name (e.g., CeraVe)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>product_discount_category</strong>
+                        <span>Product category (e.g., FMCG)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>Classifier 1</strong>
+                        <span>Main category (e.g., PERSONAL CARE)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>classifier 2</strong>
+                        <span>Sub-category (e.g., SKIN CARE)</span>
+                    </div>
+                    <div class="column-item">
+                        <strong>classifier 3</strong>
+                        <span>Specific type (e.g., BODY CARE)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Data Section -->
+        <div class="sample-section">
+            <h2><i class="fas fa-eye"></i> Sample Data</h2>
+            <div class="sample-card">
+                <p>Here's how your data should look:</p>
+                <div class="sample-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>sku_id</th>
+                                <th>Name</th>
+                                <th>brand</th>
+                                <th>product_discount_category</th>
+                                <th>Classifier 1</th>
+                                <th>classifier 2</th>
+                                <th>classifier 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CER0576</td>
+                                <td>CeraVe Moisturizing Cream</td>
+                                <td>CeraVe</td>
+                                <td>FMCG</td>
+                                <td>PERSONAL CARE</td>
+                                <td>SKIN CARE</td>
+                                <td>BODY CARE</td>
+                            </tr>
+                            <tr>
+                                <td>NEU0830</td>
+                                <td>Neurobion Forte Tablet</td>
+                                <td>Neurobion</td>
+                                <td>FMCG</td>
+                                <td>NUTRITION & METABOLISM</td>
+                                <td>VITAMINS AND MINERALS</td>
+                                <td>VITAMINS AND MINERALS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <h2><i class="fas fa-chart-line"></i> System Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4,156</div>
+                    <div class="stat-label">Indian First Names</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">709</div>
+                    <div class="stat-label">Indian Last Names</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2.9M+</div>
+                    <div class="stat-label">Unique Combinations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Username Types</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🚀 ReviewGene</h3>
+                <p>AI-Powered Review Generator for Indian E-commerce Products</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sample">Sample</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/help">Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li>AI-Powered Generation</li>
+                    <li>Indian Usernames</li>
+                    <li>Multi-Language Support</li>
+                    <li>Bulk Processing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ReviewGene. Built with ❤️ for Indian E-commerce.</p>
+        </div>
+    </footer>
+
+    <script>
+        // File input styling
+        document.getElementById('file').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Choose File';
+            document.querySelector('.file-title').textContent = fileName;
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Auto-hide alerts
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 300);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
